@@ -1,5 +1,7 @@
 <?php
 
+namespace epgcore;
+
 /**
  * @name		Wraped MySQL
  */
