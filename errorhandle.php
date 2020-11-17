@@ -10,9 +10,9 @@ function __construct()
    
 //error_reporting(E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE | E_PARSE);
 error_reporting(E_ALL);
-$old_error_handler = set_error_handler("userErrorHandler");
+$old_error_handler = set_error_handler([$this,"userErrorHandler"]);
 	
-set_exception_handler('myException');
+set_exception_handler([$this, 'myException']);
 	
 }
 
@@ -83,8 +83,8 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars)
     $err .= "\r\n\r\n";
    
     // issaugome
-    //$file = @fopen('php_error.log', 'a');
-    $file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
+    $file = @fopen('php_error.log', 'a');
+    //$file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
 	@fputs($file, $err);
 	fclose($file);
    
