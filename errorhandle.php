@@ -104,8 +104,8 @@ $err = "DATE: ".'['.date("Y-m-d H:i:s").'] IP: ['.((isset($_SERVER['REMOTE_ADDR'
 "\r\nQUERY: ".((isset($_SERVER['REQUEST_URI']))?$_SERVER['REQUEST_URI']:'');
 
 $err .= "\r\n\r\n";
-//$file = @fopen('php_error.log', 'a');
-$file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
+$file = @fopen('php_error.log', 'a');
+//$file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
 @fputs($file, $err);
 fclose($file);
 echo $e->getMessage(); 
