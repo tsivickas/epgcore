@@ -7,7 +7,13 @@ class errorhandle
 
 function __construct()
 {
-  set_exception_handler('myException');
+   
+//error_reporting(E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE | E_PARSE);
+error_reporting(E_ALL);
+$old_error_handler = set_error_handler("userErrorHandler");
+	
+set_exception_handler('myException');
+	
 }
 
 
@@ -83,11 +89,6 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars)
 	fclose($file);
    
 }
-
-//error_reporting(E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE | E_PARSE);
-error_reporting(E_ALL);
-$old_error_handler = set_error_handler("userErrorHandler");
-
 
 
 //exception default handler 
