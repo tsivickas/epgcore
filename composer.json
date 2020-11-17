@@ -1,0 +1,20 @@
+{
+    "name": "tsivickas/epgcore",
+    "description": "web framework",
+    "license": "MIT",
+    "keywords": ["epgcore"],
+    "authors": [
+        {
+            "name": "tsivickas",
+            "email": "tsivickas@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.5|^7.0"
+    },
+    "autoload": {
+        "psr-0": {
+             "phemplate": ""
+        }
+    }
+}
