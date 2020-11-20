@@ -228,7 +228,7 @@ class phemplate
 	/**
 	*	constructor
 	*/
-	function phemplate( $root_dir = '', $unknowns = 'keep', $params = 0)
+	function __construct( $root_dir = '', $unknowns = 'keep', $params = 0)
 	{
 		$this->set_root($root_dir);
 		$this->set_unknowns($unknowns);
@@ -474,10 +474,10 @@ class phemplate
 		$str = $this->get_var($handle);
 		
 		reset($this->loops);
-
-		while ( list($loop_name, $loop_ar) = each($this->loops) )
+		
+		//while ( list($loop_name, $loop_ar) = each($this->loops) ) 		{
+		foreach ($this->loops as $loop_name=>$loop_ar)
 		{
-
 			$start_tag = strpos($str, '<!-- loop name="'.$loop_name.'" -->');
 
 			$start_pos = $start_tag + strlen('<!-- loop name="'.$loop_name.'" -->');

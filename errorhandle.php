@@ -35,7 +35,10 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars)
                          E_USER_WARNING       => 'User Warning',
                          E_USER_NOTICE        => 'User Notice',
                          E_STRICT             => 'Runtime Notice',
-                         E_RECOVERABLE_ERROR  => 'Catchable Fatal Error' );
+                         E_RECOVERABLE_ERROR  => 'Catchable Fatal Error' ,
+                         E_DEPRECATED  => 'Deprecated' ,
+                        
+                        );
     
 	// set of errors for which a var trace will be saved
     //$user_errors = array(E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE);
