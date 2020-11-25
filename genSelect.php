@@ -39,7 +39,7 @@ class genSelect
 		$kita,		    //kita pasirinkta iterpiama info, pvz javaskriptas
 		$HTML;				// used to output the select code
 		
-	function genSelect($name='', $class='', $style='') // Constructor function
+	function __construct($name='', $class='', $style='') // Constructor function
 	{
 		$this->Classe = $class;
 		$this->Style = $style;
@@ -202,7 +202,7 @@ class genSelect3 extends genSelect
     var $noselect = true;
     var $itraukti = true;
     
-    function genSelect3($coa, $noselect=true, $itraukti=true) {
+    function __construct($coa, $noselect=true, $itraukti=true) {
         $this->noselect = $noselect;
         $this->itraukti = $itraukti;
         if (isset($coa[0]) && is_array($coa[0]) && array_key_exists('code',$coa[0])) $this->arrParse($coa); else $this->arrParse2($coa);
@@ -246,7 +246,7 @@ class genSelect3 extends genSelect
 
 class genSelect4 extends genSelect3
 {
-    function genSelect4($arr, $key, $val, $noselect=true, $itraukti=false) {
+    function __construct($arr, $key, $val, $noselect=true, $itraukti=false) {
         $this->noselect = $noselect;
         $this->itraukti = $itraukti;
         if ($this->noselect) { $this->ListData[]=''; $this->ListItem[]='-nepasirinktas-';  $this->data[]=array(); }

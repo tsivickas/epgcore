@@ -33,7 +33,7 @@
                 }) : r += "&q=" + t("#DTsearch_" + l).val(), xhr[l]=t.get(n.url + "&from=" + (t(a).find("tbody tr").length - 1) + "&limit=" + c + r, function(i) {
                     t.each(i, function(i, o) {
                         rowstyle = isNaN(o.rowstyle) ? rowstyle = " " + o.rowstyle + " " : "",  chtml = $("<tr>").attr('style',rowstyle),  t.each(n.cells, function(t, e) {
-                            chtml.append(  $('<td>').html(o[e]).data('col',e)   );
+                            chtml.append(  $('<td>').html(o[e]).attr('data-col',e)   );
                         }), "function" == typeof e.onRow && (chtml = e.onRow(chtml, o)), t(a).find("tbody tr:last").after(chtml)
                     }), "function" == typeof e.onFinish && e.onFinish(t(a)), n.sum && o(a), t("#DTloader_" + l).html("")
                 }, "json")
