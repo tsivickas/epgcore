@@ -29,7 +29,7 @@
                 var r = "";
 				//console.log(a, n, l, c);
                 void 0 != e.filters ? t.each(e.filters, function() {
-                    key = t(this).attr("name"), val = t(this).val(), r += "&" + key + "=" + val, i(e.objId, key, val)
+                    key = t(this).attr("name"), val = t(this).val(), r += "&" + key + "=" + encodeURIComponent(val), i(e.objId, key, val)
                 }) : r += "&q=" + t("#DTsearch_" + l).val(), xhr[l]=t.get(n.url + "&from=" + (t(a).find("tbody tr").length - 1) + "&limit=" + c + r, function(i) {
                     t.each(i, function(i, o) {
                         rowstyle = isNaN(o.rowstyle) ? rowstyle = " " + o.rowstyle + " " : "",  chtml = $("<tr>").attr('style',rowstyle),  t.each(n.cells, function(t, e) {
