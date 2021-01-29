@@ -7,7 +7,7 @@ class utils
     
     public static function max_file_upload_in_bytes() {
         
-        $return_bytes = function return_bytes($val) {
+        $return_bytes = function($val) {
             $val = trim($val);
             $last = strtolower($val[strlen($val)-1]);
             switch($last) 
