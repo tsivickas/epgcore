@@ -1,4 +1,6 @@
 <?php
+namespace epgcore;
+
 class utils
 {
     public static function max_file_upload_in_bytes() {
