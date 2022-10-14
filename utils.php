@@ -4,6 +4,16 @@ namespace epgcore;
 class utils
 {
 
+    public static function ejson($duom, $exit = true)
+    {
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Pragma: no-cache");
+        header("Content-type: application/json");
+        echo (empty($duom)) ? '{}' : json_encode($duom);
+        if ($exit) exit;
+    }
     
     public static function max_file_upload_in_bytes() {
         
