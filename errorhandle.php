@@ -5,9 +5,10 @@ class errorhandle
 {
 
 
-function __construct()
+function __construct($file=false)
 {
-   
+   $this->file = ($file) ? $file : 'php_error.log';
+	
 //error_reporting(E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE | E_PARSE);
 error_reporting(E_ALL);
 $old_error_handler = set_error_handler([$this,"userErrorHandler"]);
@@ -86,8 +87,8 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars)
     $err .= "\r\n\r\n";
    
     // issaugome
-    $file = @fopen('php_error.log', 'a');
-    //$file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
+    $file = @fopen($this->file, 'a');
+
 	@fputs($file, $err);
 	fclose($file);
    
@@ -107,8 +108,7 @@ $err = "DATE: ".'['.date("Y-m-d H:i:s").'] IP: ['.((isset($_SERVER['REMOTE_ADDR'
 "\r\nQUERY: ".((isset($_SERVER['REQUEST_URI']))?$_SERVER['REQUEST_URI']:'');
 
 $err .= "\r\n\r\n";
-$file = @fopen('php_error.log', 'a');
-//$file = @fopen(  ((stripos($filename,'test')===false)?'php_error.log':'php_error_test.log') , 'a');
+$file = @fopen($this->file, 'a');
 @fputs($file, $err);
 fclose($file);
 echo $e->getMessage(); 
